@@ -1,0 +1,45 @@
+~~~prepositions~~~
+at
+in
+on
+above
+below
+across
+against
+next to
+besides
+in front of
+by
+~~~conjunctions~~~
+for
+and
+or
+nor
+but
+yet
+so
+either
+neither
+not only
+whether
+both
+~~~particals~~~
+not
+no
+simply
+all
+even
+just
+yet
+still
+alone
+merely
+only
+solely
+exactly
+precisely
+right
+else
+~~~articles~~~
+a
+the
