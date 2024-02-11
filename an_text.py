@@ -81,11 +81,12 @@ def read_txt_file(file):
 
 
 def main():
-       txt_file = './texts/Benefits and dangers of AI in Petropysics.txt'
+       # txt_file = './texts/Benefits and dangers of AI in Petrophysics.txt'
+       txt_file = './texts/ML derived correlation of Sw for complex lithology.txt'
+       txt_file = './texts/ML derived porosity and permeability in Dakota group.txt'
        an_text1 = AnText()
        text = read_txt_file(txt_file)
        an_text1.get_text(text)
-       an_text1.print_stat()
        woc_file = './texts/wocabulary.txt'
        woc1 = woc(woc_file)
        an_text1.add_woc_words(woc1)
