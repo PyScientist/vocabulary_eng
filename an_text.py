@@ -75,7 +75,7 @@ class woc:
            
                
 def read_txt_file(file):
-    with open(file, 'r') as f:
+    with open(file, 'r', encoding='utf-8') as f:
         text = f.read()
     return text
 
