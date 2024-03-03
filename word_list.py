@@ -1,3 +1,6 @@
+import random
+
+
 class Word:
     """Class of single word, containing
         name - the word on english;
@@ -32,6 +35,8 @@ class OuterDictionary:
         self.word_dict = dict()
         if file_path is None:
             self.file_path = './words.txt'
+        else:
+            self.file_path = file_path
         self.import_words()
 
     def import_words(self):
@@ -52,18 +57,31 @@ class WordsList:
         self.dict_of_words ={}
         
     def add_word(self, word):
+        "Add word from dict only word and set of its translations"
         self.list_of_words.append(word)
         self.dict_of_words[word.name] = word
 
+    def get_words_from_external_dict(self, outer_dict):
+        """Transfer words imported from text file (from combined dict) to word list"""
+        for k in outer_dict.word_dict.keys():
+            self.add_word(Word(k, outer_dict.word_dict[k]))
+    def choose_word_randomly(self):
+        """Chose random word from WordList and print it"""
+        random_word_obj = self.list_of_words[random.randint(0, len(self.list_of_words)-1)]
+        print(random_word_obj.name)
+
+    def print_all_words(self):
+        """Print all words contained in WordList with their translations"""
+        for key in self.dict_of_words.keys():
+            print(f'{self.dict_of_words[key].name} - {self.dict_of_words[key].translit}')
+
+
 def main():
-   word_list = WordsList()
-   outer_dictionary = OuterDictionary()
-
-   for k in outer_dictionary.word_dict.keys():
-       word_list.add_word(Word(k, outer_dictionary.word_dict[k]))
-
-   for key in word_list.dict_of_words.keys():
-       print(f'{word_list.dict_of_words[key].name} - {word_list.dict_of_words[key].translit}')
+    word_list = WordsList()
+    # Get words from outer dictionary
+    word_list.get_words_from_external_dict(OuterDictionary('./words.txt'))
+    # Work with word list
+    word_list.choose_word_randomly()
 
 
 if __name__ == '__main__':
