@@ -1,4 +1,5 @@
 import random
+import time
 
 
 class Word:
@@ -10,7 +11,7 @@ class Word:
         
     def __init__(self, name, translit):
         self.name = name
-        self.translit = translit
+        self.translation = translit
         self.length = self.calc_word_lenght()
         self.spelling = self.check_spelling()
         self.definition = ''
@@ -69,11 +70,14 @@ class WordsList:
         """Chose random word from WordList and print it"""
         random_word_obj = self.list_of_words[random.randint(0, len(self.list_of_words)-1)]
         print(random_word_obj.name)
+        time.sleep(3.5)
+        print(random_word_obj.translation)
+
 
     def print_all_words(self):
         """Print all words contained in WordList with their translations"""
         for key in self.dict_of_words.keys():
-            print(f'{self.dict_of_words[key].name} - {self.dict_of_words[key].translit}')
+            print(f'{self.dict_of_words[key].name} - {self.dict_of_words[key].translation}')
 
 
 def main():
