@@ -67,3 +67,50 @@ overtake; обогнать, настичь, захватить, овладеть
 overrun; перерасход, переполнение, превышение, переливаться через край, наводнить, заполнить, захватить
 intrinsic; присущий, свойственный, внутренний, существенный
 endurance; выносливость, прочность, терпение, стойкость, выносливый, продолжительность
+pounder; -
+disseminate; распространять, распространить, рассеивать, рассеять
+entail; повлечь, вызывать, предусматривать, означать, предпологать, подразумевать
+# ---------------------------Words from Oppenheimer 2023 movie-------------------------------------
+accusing; -
+security clearance; -
+charges; -
+hounded; -
+hint; -
+rabid; -
+hounded out of job; -
+mere; -
+mere mortals; -
+shovel; -
+pivoting; -
+feasibility; -
+take over; -
+brass; -
+woman sizer; -
+compartmentalization; -
+downplaying; -
+ordnance; -
+disdain; -
+run into; -
+moaning; -
+treason; -
+nominee; -
+resent; -
+convening; -
+implosion; -
+discretion; -
+lever; -
+trek; -
+liaison; -
+solicit; -
+screw-up; -
+draft; -
+conceivably; -
+interrogate; -
+admissible; -
+admit; -
+persistent; -
+deterrence; -
+accuse; -
+bandy; -
+envisage; -
+#-----------------------------------------------------------------------
