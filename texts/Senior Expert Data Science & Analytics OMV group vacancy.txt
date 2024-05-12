@@ -1,0 +1,49 @@
+Date: 6 May 2024
+
+Location: Bucharest, RO, 013329
+
+Company: OMV Group
+
+Overview of the company
+OMV Petrom is the largest energy company in South-Eastern Europe, being active on every aspect of the energy value chain: from wells, producing oil and gas, to refining and fuels distribution, gas supply and power generation & supply. We provide the energy for day-to-day modern life: fuels for mobility, light and heat. We believe that we can only evolve with a diverse mix of employees and by ensuring a healthy work-life balance.
+
+Our Business | OMVPetrom.com
+
+
+
+At OMV Petrom, we have a long tradition of responsible behavior towards employees, the environment and society. Sustainability means a focus on conducting the business responsibly, efficiently and in an innovative way. We are committed to create long-term value for the company and our stakeholders, while respecting the environment and, supporting the communities in which we operate.
+
+Sustainability | OMVPetrom.com
+
+Your tasks
+Works with the business stakeholders to identify what the business requirements are and the expected outcome. Models and frames business scenarios that are meaningful and which impact on critical business processes and/or decisions;
+Identifies what data is available and relevant, including internal and external data sources, leveraging new data collection processes such as smart meters and geo-location information or social media;
+Ensures that the information used follows the compliance, access management and control policies of the organization and that it meets the qualification and assurance requirements of the business;
+Includes experimental design approaches to validate findings by comparing appropriate samples;
+Suggests ongoing improvements to methods and algorithms that lead to findings, including new information. Understands the use and ability to employ the appropriate algorithm to discover patterns;
+Educates the organization both from Digital Solutions and the business perspectives on these new approaches, such as testing hypotheses and statistical validation of result;
+Creates hypotheses and experiments to identify hidden relationships and construct new analytics methods;
+Researches bleeding-edge techniques and tools in machine learning/deep learning/ responsible artificial intelligence.
+Your profile
+Master’s degree: Mathematics / Computer Science / Business Informatics;
+Relevant professional experience: more than 9 years in Data Science / Analytics, Data Engineering;
+Specific Microsoft Azure certifications: Azure Fundamentals; Azure Data Scientist Associate; Azure AI Engineer Associate; Azure Data Engineer Associate; Azure Developer Associate;
+Excellent knowledge of business procedures and processes in respective area and latest technical trends / solutions;
+Solid understanding of all the core elements within own discipline, good knowledge of the interdependencies and can manage interfaces with other disciplines;
+Technical expertise with object-oriented/object function scripting languages: Python, Java, C++, Scala, etc.;
+Practical cloud experience, Microsoft Azure (Azure Data Lake Storage, Azure Databricks, Azure Cognitive Services, Azure ML Services etc.) is preferred;
+Advanced expertise in working with tolls like: Power BI, Spotfire or Tableau
+Advanced expertise working with relational SQL and NoSQL databases, including Postgres and Cassandra
+Fluency in English.
+Location
+Bucharest
+What OMV Petrom can offer you
+Long weekend plans are always welcome - on Friday, our office hours end at 14.00.
+You can rely on a health insurance that covers medical treatment in a variety of private medical clinics.
+You can work from home, if the work activity allows.
+The number of your days off increase according to your work experience so that you'll enjoy more free time.
+We aim to make your vacation days happier, by paying each vacation day double.
+Are you a top performer? Your work can be rewarded each three months based on performance results.
+Additional days off and various financial support for different events like marriage, child birth, etc.
+Access to LinkedIn Learning and a variety of development programs.
+Do you prefer cars or bikes? We have free private covered parking.

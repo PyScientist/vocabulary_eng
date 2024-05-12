@@ -32,15 +32,15 @@ class Word:
 class OuterDictionary:
     """Class which provides tools for import of outer dictionary with following structure:
     english word; russian translation1, russian translation2, russian translation3 ..."""
-    def __init__(self, file_path=None):
+    def __init__(self, file_path=None, err_reporting=False):
         self.word_dict = dict()
         if file_path is None:
-            self.file_path = './words.txt'
+            self.file_path = './texts/vocabulary.txt'
         else:
             self.file_path = file_path
-        self.import_words()
+        self.import_words(err_reporting=err_reporting)
 
-    def import_words(self):
+    def import_words(self, err_reporting=False):
         with open(self.file_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
             for i, line in enumerate(lines):
@@ -48,10 +48,11 @@ class OuterDictionary:
                     self.word_dict[line.split(';')[0]] = line.split(';')[1].strip()
                 except IndexError as err:
                     # Conditions if line looks corrupted
-                    if line.startswith('#'):
+                    if line.startswith('~~~*~~~'):
                         pass
                     else:
-                        print(f'Possibly string {i+1} of outer dictionary is corrupted "{line}"')
+                        if err_reporting:
+                            print(f'Possibly string {i+1} of outer dictionary is corrupted "{line}"')
 
 
 class WordsList:
@@ -73,9 +74,9 @@ class WordsList:
         """Chose random word from WordList and print it"""
 
         random_word_obj = self.dict_of_words[list(self.dict_of_words.keys())[random.randint(0, len(self.dict_of_words)-1)]]
-        print(random_word_obj.name)
+        print(f'Please recall this word: {random_word_obj.name}')
         time.sleep(3.5)
-        print(random_word_obj.translation)
+        print(f'The word has following translation to Russian: {random_word_obj.translation}\n\n\n')
 
     def print_all_words(self):
         """Print all words contained in WordList with their translations"""
@@ -92,14 +93,14 @@ class WordsList:
 def main():
     word_list = WordsList()
     # Get words from outer dictionary
-    word_list.get_words_from_external_dict(OuterDictionary('./words.txt'))
+    word_list.get_words_from_external_dict(OuterDictionary('./texts/vocabulary.txt', err_reporting=False))
     # Work with word list
     word_list.choose_word_randomly()
     word_list.check_the_word_presence('accusing')
 
     # Need add exporting database in json object and back by serialization and deserialization
+    # Add functionality to add word in dictionary, delete word from dictionary
     # Add simple interface with Tkinter / Web interface (The hard way)?
-
 
 if __name__ == '__main__':
     main()

@@ -1,3 +1,54 @@
+~~~prepositions~~~
+at; -
+in; -
+on; -
+above; -
+below; -
+across; -
+against; -
+next to; -
+besides; -
+in front of; -
+by; -
+~~~conjunctions~~~
+for; -
+and; -
+or; -
+nor; -
+but; -
+yet; -
+so; -
+either; -
+neither; -
+not only; -
+whether; -
+both; -
+~~~particles~~~
+not; -
+no; -
+simply; -
+all; -
+even; -
+just; -
+yet; -
+still; -
+alone; -
+merely; -
+only; -
+solely; -
+exactly; -
+precisely; -
+right; -
+else; -
+~~~articles~~~
+a; -
+the; -
+~~~words~~~~
+whereas; тогда как
+retains; удерживать, поддерживать, оставить
+conceive; постигать, понимать, задумывать, пологать
+streamline; упорядочить, упростить, оптимизировать
+tedious; утомительный
 bird; птица
 anxiety; тревожность
 internalize; усвоить, впитывать
@@ -67,26 +118,27 @@ overtake; обогнать, настичь, захватить, овладеть
 overrun; перерасход, переполнение, превышение, переливаться через край, наводнить, заполнить, захватить
 intrinsic; присущий, свойственный, внутренний, существенный
 endurance; выносливость, прочность, терпение, стойкость, выносливый, продолжительность
-pounder; -
+pounder; пестик
 disseminate; распространять, распространить, рассеивать, рассеять
 entail; повлечь, вызывать, предусматривать, означать, предпологать, подразумевать
-# ---------------------------Words from Oppenheimer 2023 movie-------------------------------------
-accusing; -
-security clearance; -
-charges; -
-hounded; -
-hint; -
-rabid; -
+~~~Words from Oppenheimer 2023 movie~~~
+accusing; обвиняюший, осуждающий, обвинение
+security clearance; допуск
+charge; заряжать, обвинять, поручать, плата, сбор, обвинение
+hound; преследовать
+hint; намек, подсказка, совет, с полуслова
+rabid; бешеный, неистовый, яростный, оголтелый
 hounded out of job; -
-mere; -
-mere mortals; -
-shovel; -
-pivoting; -
-feasibility; -
-take over; -
-brass; -
-woman sizer; -
-compartmentalization; -
+mere; простой, обычный, просто, чмстый, банальный, обыкновенный
+mere mortals; простые смертные
+shovel; лопата
+pivoting; поворотный, вращаюшийся
+pivot; поворот
+feasibility; осуществимость, целесообразность, пригодность, выполнимость
+take over; захват, поглощение, перенимать
+brass; латунь, медь, латунный, начальство
+woman sizer; любитель женщин, бабник
+compartmentalization; разделение на части
 downplaying; -
 ordnance; -
 disdain; -
@@ -113,4 +165,4 @@ deterrence; -
 accuse; -
 bandy; -
 envisage; -
-#-----------------------------------------------------------------------
+~~~*~~~
