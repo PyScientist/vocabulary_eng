@@ -38,7 +38,7 @@ class OuterDictionary_txt:
     def __init__(self, file_path=None, err_reporting=False):
         self.word_dict = dict()
         if file_path is None:
-            self.file_path = './texts/vocabulary.txt'
+            self.file_path = 'texts/vocabulary.txt'
         else:
             self.file_path = file_path
         self.import_words(err_reporting=err_reporting)

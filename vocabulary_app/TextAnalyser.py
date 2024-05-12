@@ -114,7 +114,7 @@ class ExternalVocabulary:
 
 
 def main():
-    text_path = './texts/Senior Expert Data Science & Analytics OMV group vacancy.txt'
+    text_path = 'texts/Senior Expert Data Science & Analytics OMV group vacancy.txt'
     text_analyser = TextAnalyser()
     external_vocabulary = ExternalVocabulary(vocabulary_file_path='texts/vocabulary.txt')
     text_analyser.add_external_vocabulary_words(external_vocabulary)
