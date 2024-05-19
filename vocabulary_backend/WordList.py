@@ -7,15 +7,15 @@ class Word:
     """Class of single word, containing
     :param name: The english word;
     :param translations: Translation to russian (Can be several meanings).
-    It also can be provided definition, speach part attributes after word instantiation
-    importance and related topic. Initially the highest importance set is equal 5"""
+    It also can be provided definition, speech part attributes after word instantiation
+    importance and related topic. Initially, the highest importance set is equal 5"""
         
     def __init__(self, name, speach_part='', translations='', definition='', importance=5, topic=''):
         self.name = name
         self.translations = translations
         self.definition = definition
         self.speach_part = speach_part
-        # Importance of the word could be between 0 and 5 where 5 is very important
+        # The Importance of the word could be between 0 and 5 where 5 is very important
         self.importance = importance
         self.topic = topic
         self.length = self.calc_word_length()
@@ -32,8 +32,8 @@ class Word:
         return len(self.name)
 
 
-class OuterDictionary_txt:
-    """Class which provides tools for import of outer dictionary with following structure:
+class OuterDictionaryTxt:
+    """Class which provides tools for import of outer dictionary with the following structure:
     english word; russian translation1, russian translation2, russian translation3 ..."""
     def __init__(self, file_path=None, err_reporting=False):
         self.word_dict = dict()
@@ -49,8 +49,8 @@ class OuterDictionary_txt:
             for i, line in enumerate(lines):
                 try:
                     self.word_dict[line.split(';')[0]] = line.split(';')[1].strip()
-                except IndexError as err:
-                    # Conditions if line looks corrupted
+                except IndexError:
+                    # Conditions if line looks like corrupted
                     if line.startswith('~~~*~~~'):
                         pass
                     else:
@@ -60,25 +60,26 @@ class OuterDictionary_txt:
 
 class WordsList:
     """Class which contains methods
-    and interfaces to add words and their properties to te list"""
+    and interfaces to add words and their properties to the list"""
     def __init__(self):
         self.dict_of_words = dict()
-        # Open connection to database
+        # Open connection to the database
         self.db_text_analyser = DbTextAnalyser()
         
     def add_word(self, word):
-        """Add word from dict only word and set of its translations"""
+        """Add word from dict-only word and set of its translations"""
         self.dict_of_words[word.name] = word
 
     def get_words_from_external_dict(self, outer_dict):
-        """Transfer words imported from text file (from prepared dict) to word list"""
+        """Transfer words imported from text file (from prepared dict) to the word list"""
         for name in outer_dict.word_dict.keys():
             self.add_word(Word(name=name, translations=outer_dict.word_dict[name]))
 
     def choose_word_randomly(self):
         """Chose random word from WordList and print it"""
 
-        random_word_obj = self.dict_of_words[list(self.dict_of_words.keys())[random.randint(0, len(self.dict_of_words)-1)]]
+        random_word_obj = self.dict_of_words[list(self.dict_of_words.keys())[random.randint(0,
+                                                                                            len(self.dict_of_words)-1)]]
         print(f'Please recall this word: {random_word_obj.name}')
         time.sleep(3.5)
         print(f'The word has following translation to Russian: {random_word_obj.translations}\n\n\n')
@@ -108,7 +109,7 @@ class WordsList:
         table_name = 'words'
         self.dict_of_words = dict()
 
-        # Look how organised columns in db
+        # Look how organized columns in db
         columns_names_num_dict = {}
         for i, name in enumerate(self.db_text_analyser.get_columns_names(table_name)):
             columns_names_num_dict[name] = i
@@ -122,22 +123,23 @@ class WordsList:
                                importance=word[columns_names_num_dict['importance']],
                                topic=word[columns_names_num_dict['topic']]))
 
+
 def main():
     word_list = WordsList()
     # Get words from outer dictionary
-    #word_list.get_words_from_external_dict(OuterDictionary_txt('./texts/vocabulary.txt', err_reporting=False))
-    # Work with word list
+    # word_list.get_words_from_external_dict(OuterDictionary_txt('./texts/vocabulary.txt', err_reporting=False))
+    # Work with a word list
 
-    #word_list.load_words_from_dict_to_db()
+    # word_list.load_words_from_dict_to_db()
     word_list.get_words_from_db()
 
-
     word_list.choose_word_randomly()
-    #word_list.check_the_word_presence('accusing')
+    # word_list.check_the_word_presence('accusing')
 
-    # Need add exporting database in json object and back by serialization and deserialization
+    # Need to add exporting databases in json object and back by serialization and deserialization
     # Add functionality to add word in dictionary, delete word from dictionary
     # Add simple interface with Tkinter / Web interface (The hard way)?
+
 
 if __name__ == '__main__':
     main()

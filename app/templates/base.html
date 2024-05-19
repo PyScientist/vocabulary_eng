@@ -1,14 +1,38 @@
 <!doctype html>
 <html>
     <head>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
       {% if title %}
-      <title>{{ title }} - Vocabulary</title>
+      <title>{{ title }} / Text Analyser app!</title>
       {% else %}
-      <title>Welcome to Vocabulary!</title>
+      <title>Text Analyser app!</title>
       {% endif %}
+
     </head>
     <body>
-        <div>Vocabulary: <a href="/index">Home</a></div>
+        <div>
+            {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
+                <a href="{{ url_for('user', username=current_user.nickname) }}">Profile</a><br>
+                <a href="{{ url_for('vocabulary_table') }}">Vocabulary</a><br>
+                <a href="{{ url_for('submit_word') }}">Submit new word</a><br>
+                <a href="{{ url_for('index') }}">Home</a><br>
+                <a href="{{ url_for('logout') }}">Logout</a><br>
+                <a href="{{ url_for('mass_upload_words') }}">Upload words from db</a><br>
+                <a href="{{ url_for('test') }}">testing</a>
+
+            {% endif %}
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         <hr>
         {% block content %}{% endblock %}
     </body>

@@ -1,0 +1,58 @@
+----------------Testing in manual mode-------------------------------------------------------------
+(venv) $ from flask_web_text_analyser import app
+(venv) $ app.config['SECRET_KEY']
+
+
+----------------Run flask server-------------------------------------------------------------------
+# Should be run from venv of the project (.flaskenv is specifying the launched app by flask and other specific things like debug).
+(venv) $ flask run
+
+---------------Creation repository for migration---------------------------------------------------
+#Command should create migrations folder.
+(venv) $ flask db init
+
+---------------Performing migration (generating scenario of migration)-----------------------------
+(venv) $ flask db migrate -m "words table, users table"
+
+---------------Performing migration (applying migration)-------------------------------------------
+(venv) $ flask db upgrade
+---------------Downgrade migration-----------------------------------------------------------------
+# After applying of the command all previous changes will be deleted from db, and you need manually
+# delete the previous version of migration from versions folder to crete new.
+(venv) $ flask db downgrade
+
+---------------------------To create new user-------------------------------------------------------
+>>> from app import app, db
+>>> from app.models import Words, Users
+>>> import sqlalchemy as sa
+
+>>> app.app_context().push()
+
+>>> u = Users(name='Sergei', nickname='PyScientist', email='sergei-dmitriev@mail.ru')
+>>> db.session.add(u)
+>>> db.session.commit()
+
+---------------------------Make some query---------------------------------------------------------
+>>> query = sa.select(Users)
+>>> users = db.session.scalars(query).all()
+>>> users
+
+>>>for u in users:
+...   print(u.id, u.name)
+>>> print(db.session.get(Users, 1))
+
+--------------------------Make post as selected user------------------------------------------------
+
+>>> w = Words(name='cool', speach_part='adjactive', translations='прохладный', definition='slightly cold', importance=3, topic='program testing', author=u)
+>>> db.session.add(w)
+>>> db.session.commit()
+
+# get all users that have usernames starting with "s"
+>>> query = sa.select(User).where(User.username.like('s%'))
+
+--------------------------Downgrade base level to make it clean------------------------------------------------
+(venv) $ flask db downgrade base
+(venv) $ flask db upgrade
+
+--------------------------Launch python in app context----------------------------------------------------------
+(venv) $ flask shell

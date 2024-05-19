@@ -1,12 +1,52 @@
-from archive.temp import db
+from typing import Optional
+from datetime import datetime, timezone
+from flask_login import UserMixin
+import sqlalchemy as sa
+import sqlalchemy.orm as so
+from werkzeug.security import generate_password_hash, check_password_hash
+from app import db
+from app import login
+
+@login.user_loader
+def load_user(id):
+    return db.session.get(Users, int(id))
+
+
+class Users(UserMixin, db.Model):
+
+    __tablename__ = 'users'
+
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(60), index=True, unique=False)
+    nickname: so.Mapped[str] = so.mapped_column(sa.String(60), index=True, unique=True)
+    email: so.Mapped[str] = so.mapped_column(sa.String(60), index=True, unique=True)
+    password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
+    words: so.WriteOnlyMapped['Words'] = so.relationship(back_populates='author')
+
+    def __repr__(self):
+        return 'Users {}'.format(self.name)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 
 class Words(db.Model):
-    __tablename__ = "words"
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(4096))
-    speach_part = db.Column(db.String(4096))
-    translations = db.Column(db.String(4096))
-    definition = db.Column(db.String(4096))
-    importance = db.Column(db.Int())
-    topic = db.Column(db.String(4096))
+
+    __tablename__ = 'words'
+
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True, unique=False)
+    speach_part: so.Mapped[str] = so.mapped_column(sa.String(30), index=True, unique=False)
+    translations: so.Mapped[str] = so.mapped_column(sa.String(256), unique=False)
+    definition: so.Mapped[str] = so.mapped_column(sa.String(300), unique=False)
+    importance: so.Mapped[str] = so.mapped_column(sa.Integer(), index=True, unique=False)
+    topic: so.Mapped[str] = so.mapped_column(sa.String(30), index=True, unique=False)
+    creation_date: so.Mapped[datetime] = so.mapped_column(index=True, default=lambda: datetime.now(timezone.utc))
+    user_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Users.id), index=True, unique=False)
+    author: so.Mapped[Users] = so.relationship(back_populates='words')
+
+    def __repr__(self):
+        return 'Words {}'.format(self.name)

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Current vocabulary table</h1>
+
+    {% for word in words %}
+                <div class="row">
+                   {{word.name}}
+                </div>
+    {% endfor %}
+
+{% endblock %}

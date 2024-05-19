@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User: {{ user.nickname }}</h1>
+    <hr>
+<h2> Words for user {{ user.nickname }}</h2>
+    <div class="wrapper">
+        <div class="row header">
+            <div class="cell">Name</div>
+            <div class="cell">Translations</div>
+            <div class="cell">Topic</div>
+        </div>
+        {% for word in words %}
+           {% include '_word.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}

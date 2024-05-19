@@ -34,7 +34,7 @@ class DbTextAnalyser:
         self.cur.execute(sql)
 
     def add_record_words_t(self, name, speach_part, translation, definition, importance, topic):
-        """Add record to words table"""
+        """Add record to word table"""
         sql = F"SELECT COUNT(*) as count FROM {self.wTable}"
         self.cur.execute(sql)
         item_id = self.cur.fetchone()[0] + 1
@@ -44,13 +44,13 @@ class DbTextAnalyser:
         self.con.commit()
 
     def remove_record_words_t_by_id(self, item_id):
-        """Remove record from words table by given id"""
+        """Remove record from word table by given id"""
         sql = F"DELETE FROM {self.wTable} WHERE id = {int(item_id)}"
         self.cur.execute(sql)
         self.con.commit()
 
     def get_columns_names(self, table):
-        """Get columns names from given table"""
+        """Get column names from given table"""
         sql = F"pragma table_info({table})"
         self.cur.execute(sql)
         col_names = []
@@ -69,9 +69,9 @@ class DbTextAnalyser:
 
 if __name__ == '__main__':
     db_text_analyser = DbTextAnalyser()
-    #db_text_analyser.add_record_words_t('fine', 'noun', 'штраф, пеня',
-    #                                    'The fine an amount of money that has to be paid as a punishment for not obeying a rule or law', 5, 'setup')
-    #print(db_text_analyser.get_records('words'))
-    #db_text_analyser.remove_record_words_t_by_id(1)
+    # db_text_analyser.add_record_words_t('fine', 'noun', 'штраф, пеня',
+    # 'The fine an amount of money that has to be paid as a punishment for not obeying a rule or law', 5, 'setup')
+    # print(db_text_analyser.get_records('words'))
+    # db_text_analyser.remove_record_words_t_by_id(1)
     print(db_text_analyser.get_records('words'))
     db_text_analyser.close_db_connection()

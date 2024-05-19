@@ -63,7 +63,7 @@ class TextAnalyser:
         # Prepare dataframe with uniq words sorted frequency order
         word_frequency_dict = {'word': [], 'frequency': [], 'first-letter': []}
         for key in uniq_words_dict.keys():
-            if key!='':
+            if key != '':
                 print(f"'{key}'")
                 word_frequency_dict['word'].append(key)
                 word_frequency_dict['frequency'].append(uniq_words_dict[key])
@@ -74,15 +74,15 @@ class TextAnalyser:
 
         if self.vocabulary_words:
             self.df_unique_words_unknown = self.df_unique_words[~self.df_unique_words['word'].
-                                            isin(self.vocabulary_words)]
+                isin(self.vocabulary_words)]
             self.df_unique_words_known = self.df_unique_words[self.df_unique_words['word'].
-                                          isin(self.vocabulary_words)]
+                isin(self.vocabulary_words)]
 
     def add_external_vocabulary_words(self, external_vocabulary):
         """Load words from previously prepared vocabulary into object"""
         self.vocabulary_words = external_vocabulary.words
 
-    def print_stat(self, uniq_words_print = True, known_words = False, unknown_words = False):
+    def print_stat(self, uniq_words_print=True, known_words=False, unknown_words=False):
         """Display important metrics"""
         print(f'Total words amount: {len(self.all_words)} Uniq words amount: {self.df_unique_words.shape[0]}')
         pd.set_option('display.max_rows', 500)
