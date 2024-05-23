@@ -14,12 +14,11 @@
             {% if current_user.is_anonymous %}
                 <a href="{{ url_for('login') }}">Login</a>
             {% else %}
+                <a href="{{ url_for('index') }}">Home</a><br>
                 <a href="{{ url_for('user', username=current_user.nickname) }}">Profile</a><br>
                 <a href="{{ url_for('vocabulary_table') }}">Vocabulary</a><br>
                 <a href="{{ url_for('submit_word') }}">Submit new word</a><br>
-                <a href="{{ url_for('index') }}">Home</a><br>
                 <a href="{{ url_for('logout') }}">Logout</a><br>
-                <a href="{{ url_for('mass_upload_words') }}">Upload words from db</a><br>
                 <a href="{{ url_for('test') }}">testing</a>
 
             {% endif %}

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField, BooleanField, PasswordField
-from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
+from wtforms import StringField, SubmitField, IntegerField, BooleanField, PasswordField, TextAreaField
+from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, Length
 import sqlalchemy as sa
 from app import db
 from app.models import Users
@@ -44,6 +44,9 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use different email address.')
 
 
-class MassUploadWordsForm(FlaskForm):
-    submit = SubmitField('Start Uploading')
+class EditProfileForm(FlaskForm):
+    username = StringField('User', validators=[DataRequired()])
+    about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
+    submit = SubmitField('Submit')
+
 

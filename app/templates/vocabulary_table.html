@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Current vocabulary table</h1>
-
-    {% for word in words %}
-                <div class="row">
-                   {{word.name}}
-                </div>
-    {% endfor %}
-
+<h2> Words for user {{ user.nickname }}</h2>
+    <div class="wrapper">
+        <div class="row header green">
+            <div class="cell">Name</div>
+            <div class="cell">Translations</div>
+            <div class="cell">Topic</div>
+        </div>
+        {% for word in words %}
+           {% include '_word.html' %}
+        {% endfor %}
+    </div>
 {% endblock %}
