@@ -37,7 +37,7 @@ if not app.debug:
         app.logger.addHandler(mail_handler)
 
 # Creating logger to file
-if not app.debug:
+if app.debug:
     if not os.path.exists('logs'):
         os.mkdir('logs')
     file_handler = RotatingFileHandler('logs/.log', maxBytes=10240,
