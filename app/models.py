@@ -44,8 +44,8 @@ class Users(UserMixin, db.Model):
         back_populates='followers')
     followers: so.WriteOnlyMapped['Users'] = so.relationship(
         secondary=followers,
-        primaryjoin=(followers.c.follower_id == id),
-        secondaryjoin=(followers.c.followed_id == id),
+        primaryjoin=(followers.c.followed_id == id),
+        secondaryjoin=(followers.c.follower_id == id),
         back_populates='following')
 
     def __repr__(self):
@@ -62,15 +62,15 @@ class Users(UserMixin, db.Model):
         return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
 
     def follow(self, user):
-        if not self.is_folowing(user):
+        if not self.is_following(user):
             self.following.add(user)
 
-    def unfollow(self,user):
+    def unfollow(self, user):
         if self.is_following(user):
             self.following.remove(user)
 
     def is_following(self, user):
-        query = self.following.select().where(Users.id == user.id)
+        query = self.following.select().where(self.id == user.id)
         return db.session.scalar(query) is not None
 
     def followers_count(self):
@@ -84,8 +84,8 @@ class Users(UserMixin, db.Model):
         return db.session.scalar(query)
 
     def following_posts(self):
-        Author = so.aliased(Users)
-        Follower = so.aliased(Users)
+        Author = so.aliased(self)
+        Follower = so.aliased(self)
         return (
             sa.select(Words)
             .join(Words.author.of_type(Author))
